@@ -1,0 +1,2 @@
+class Bake < ApplicationRecord
+end

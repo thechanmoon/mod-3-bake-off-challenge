@@ -1,0 +1,68 @@
+:root {
+  --main-bg-color: rgb(255, 237, 194);
+  --theme-primary: cadetblue;
+  --light-grey: rgb(200,200,200);
+}
+
+/* mini reset */
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* layout */
+body {
+  font-family: Lato, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 14px;
+  background-color: var(--main-bg-color);
+}
+
+main {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "nav content";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+}
+
+header {
+  grid-area: header;
+  padding: 0.5rem;
+  background-color: var(--theme-primary);
+  color: #FFFFFF;
+}
+
+aside {
+  grid-area: nav;
+  background-color: var(--light-grey);
+}
+
+section {
+  grid-area: content;
+}
+
+/* sidebar */
+aside button {
+  width: 100%;
+  cursor: pointer;
+}
+
+aside ul {
+  width: 100%;
+  padding: 0;
+}
+
+aside li {
+  width: 100%;
+}
