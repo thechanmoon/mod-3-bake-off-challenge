@@ -6,34 +6,53 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <script defer src="index.js"></script>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Lato&display=swap" rel="stylesheet">
   <title>Bake Off Challenge</title>
 </head>
 <body>
-  <main>
-    <header>
-      <h1>Bake Off Challenge</h1>
-    </header>
-    <aside>
-      <button>Make New Bake</button>
-      <ul id="bakes-container" class="side-list">
-        <li class="side-list__item">Pie</li>
-        <li class="side-list__item">Cake</li>
-        <li class="side-list__item">Biscuit</li>
-      </ul>
-    </aside>
-    <section id="detail">
-      <img src="https://upload.wikimedia.org/wikipedia/en/8/83/The_Great_British_Bake_Off_title.jpg" alt="GBBO">
-      <h1>Bake Off Challenge</h1>
-      <div class="description">
-        Technically a challenge
-      </div>
-      <form id="rating-form">
-        <input type="number" name="rating" min="0" max="10" step="1">
-        <input type="submit" value="Rate">
+    <main>
+      <aside>
+        <h1>Bake Off Challenge</h1>
+        <h2>Entries</h2>
+        <ul id="bakes-container" class="side-list">
+          <!-- Add Bakes Here -->
+        </ul>
+        <h2>Actions</h2>
+        <ul id="actions-container" class="side-list">
+          <li class="item" id="make-bake-button">
+            Make New Bake
+          </li>
+          <li class="item">
+            Judge Bakes
+          </li>
+        </ul>
+      </aside>
+      <section>
+        <div id="detail">
+          <h1>Replace Me With A Bake</h1>
+          <!-- <img src="https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/05/Choc_Orange_Madalienes_1024x450-1024x450.png" alt="Rahul’s Chocolate-dipped Orange Madeleines">
+          <h1>Rahul’s Chocolate-dipped Orange Madeleines</h1>
+          <p class="description">
+            These dainty treats are filled with homemade orange curd. You’ll make more curd than you need, so keep the remainder to have on toast another time.
+          </p>
+          <form id="rating-form">
+            <input type="number" name="rating" min="0" max="10" step="1">
+            <input type="submit" value="Rate">
+          </form> -->
+        </div>
+      </section>
+    </main>
+    <div id="modal" style="display: none;" data-action="close">
+      <form id="new-bake-form">
+        <h1>Create New Bake</h1>
+        <label for="name">Name</label>
+        <input type="text" name="name">
+        <label for="image_url">Image URL</label>
+        <input type="text" name="image_url">
+        <label for="description">Description</label>
+        <textarea name="description" rows="2"></textarea>
+        <input type="submit" value="Create Bake">
       </form>
-      <!-- or! -->
-      <!-- new bake form -->
-    </section>
-  </main>
+    </div>
   </body>
 </html>
