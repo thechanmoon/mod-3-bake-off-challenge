@@ -77,8 +77,8 @@ The HTML of how you should render the selected bake in the `#detail` div should 
   <p class="description">
     Fragrant breads baked to resemble ice-cream tubs are topped with a delicious cream-cheese icing and sprinkles. They are great fun to serve to children.
   </p>
-  <form id="score-form">
-    <input type="number" name="score" min="0" max="10" step="1" value="10">
+  <form id="score-form" data-id="1">
+    <input value="10" type="number" name="score" min="0" max="10" step="1">
     <input type="submit" value="Rate">
   </form>
 ```
