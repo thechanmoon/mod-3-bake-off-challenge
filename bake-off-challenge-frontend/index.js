@@ -1,25 +1,26 @@
-// Leave this here! 
-// Show the form
-document.querySelector("#make-bake-button").addEventListener("click", () => {
-  modal.style.display = "block"
-})
-// Hide the form
-document.querySelector("#modal").addEventListener("click", e => {
-  if (e.target.dataset.action === "close") {
-    modal.style.display = "none"
-  }
-})
-
-
 const form = document.querySelector("#new-bake-form")
 const detail = document.querySelector("#detail")
 const bakesContainer = document.querySelector("#bakes-container")
-
+const judgeBakes = document.querySelector("#judge-bake-button")
 
 const state = {
   bakes: [],
   selectedBakeId: null
 }
+
+judgeBakes.addEventListener("click", () => {
+  fetch("http://localhost:3000/bakes/winner")
+    .then(r => r.json())
+    .then(data => {
+      bakesContainer.querySelectorAll(".item").forEach(item => {
+        if (parseInt(item.dataset.id) === data.id) {
+          item.classList.add("winner")
+        } else {
+          item.classList.remove("winner")
+        }
+      })
+    })
+})
 
 bakesContainer.addEventListener("click", e => {
   if (e.target.tagName === "LI") {
@@ -56,6 +57,9 @@ form.addEventListener("submit", e => {
 detail.addEventListener("submit", e => {
   e.preventDefault()
   const score = parseInt(e.target.score.value)
+  const bake = state.bakes.find(b => b.id === selectedBakeId)
+  bake.score = score
+  console.log(state.bakes)
 
   fetch(`http://localhost:3000/bakes/${selectedBakeId}/ratings`, {
     method: "POST",
@@ -77,7 +81,7 @@ function renderOneBakeDetail(bake) {
       ${bake.description}
     </p>
     <form id="score-form">
-      <input type="number" name="score" min="0" max="10" step="1">
+      <input type="number" name="score" min="0" max="10" step="1" value="${bake.score}">
       <input type="submit" value="Rate">
     </form>
   `

@@ -1,5 +1,4 @@
 class BakesController < ApplicationController
-  before_action :authorize, only: :rate
 
   def index
     bakes = Bake.all
@@ -24,20 +23,12 @@ class BakesController < ApplicationController
     end
   end
 
-  def rate
-    bake = Bake.update(rating: params[:rating])
-    if bake.valid?
-      render json: bake
-    else
-      render json: { errors: bake.errors.full_messages }, status: 403
-    end
+  def winner
+    bake = Bake.winner
+    render json: bake
   end
 
   private
-
-  def authorize
-    byebug
-  end
 
   def create_bake_params
     params.permit(:name, :image_url, :description)

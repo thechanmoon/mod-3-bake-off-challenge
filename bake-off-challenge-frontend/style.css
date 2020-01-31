@@ -82,12 +82,12 @@ aside li.item:hover {
   background-color: #fae8b9;
 }
 
-aside li.item .rating {
-  border-radius: 50%;
+aside li.item.winner:after {
+  content: "winner";
+  border-radius: 1em;
   background-color: #facc57;
-  width: 1.5rem;
   height: 1.5rem;
-  text-align: center;
+  padding: 0 1em;
   margin: 0 0.5rem;
 }
 

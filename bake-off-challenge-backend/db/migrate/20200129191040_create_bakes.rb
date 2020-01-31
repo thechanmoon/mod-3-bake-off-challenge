@@ -4,7 +4,6 @@ class CreateBakes < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :description
       t.string :image_url
-      t.integer :rating, default: 0
 
       t.timestamps
     end
