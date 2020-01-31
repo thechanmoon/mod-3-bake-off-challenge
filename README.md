@@ -2,6 +2,12 @@
 
 Today, we'll be making an app to create delicious baked goods and allow the judges to rate our creations!
 
+## Demo
+
+Here's a demo of the completed app:
+
+![](demo.gif)
+
 ## Deliverables
 
 1. **When the page first loads**, all the bakes should display in the sidebar.
