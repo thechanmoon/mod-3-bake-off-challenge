@@ -10,7 +10,7 @@ Here's a demo of the completed app:
 
 ## Deliverables
 
-1. **When the page first loads**, all the bakes should display in the sidebar.
+1. **When the page first loads**, all the bakes should display in the sidebar. The first bake should show in the detail view (see deliverable 2).
 2. **When a bake is clicked in the sidebar**, the details for the bake should show up in the detail area.
 3. When the "Make New Bake" button is clicked, a popup (modal) will display a form (this part is already done for you). **When this form is submitted**, a new bake should be created in the backend and added to the list of bakes displayed in the sidebar.
 
@@ -32,7 +32,7 @@ A full list of available routes can be found by visiting `http://localhost:3000/
 
 ### Get All Bakes (Deliverable 1)
 
-**When the page first loads**, all the bakes should display in the sidebar.
+**When the page first loads**, all the bakes should display in the sidebar. The first bake should show in the detail view (see deliverable 2).
 
 To create each list item in the `#bakes-container` in the sidebar, use the following HTML as a template:
 
