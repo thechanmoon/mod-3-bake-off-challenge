@@ -2,6 +2,18 @@
 
 Today, we'll be making an app to create delicious baked goods and allow the judges to rate our creations!
 
+## API Setup
+
+From the `bake-off-challenge-backend` directory, run the following commands to set up and start the server:
+
+```sh
+$ bundle install            # Install gems
+$ rails db:migrate db:seed  # Migrate and seed
+$ rails s                   # Start the server
+```
+
+A full list of available routes can be found by visiting `http://localhost:3000/rails/info/routes`.
+  
 ## Demo
 
 Here's a demo of the completed app:
@@ -17,18 +29,6 @@ Here's a demo of the completed app:
 ## Bonus Deliverables
 - **In the detail view, when a user enters a score and submits**, the score should be saved in the backend and persisted in the frontend.
 - **When the user clicks 'Judge Bakes'**, the winner should be revealed in the sidebar.
-
-## API Setup
-
-From the `bake-off-challenge-backend` directory, run the following commands to set up and start the server:
-
-```sh
-$ bundle install            # Install gems
-$ rails db:migrate db:seed  # Migrate and seed
-$ rails s                   # Start the server
-```
-
-A full list of available routes can be found by visiting `http://localhost:3000/rails/info/routes`.
 
 ### Get All Bakes (Deliverable 1)
 
