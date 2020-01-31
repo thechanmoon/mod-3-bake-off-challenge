@@ -15,7 +15,7 @@ Here's a demo of the completed app:
 3. When the "Make New Bake" button is clicked, a popup (modal) will display a form (this part is already done for you). **When this form is submitted**, a new bake should be created in the backend and added to the list of bakes displayed in the sidebar.
 
 ## Bonus Deliverables
-- **In the detail view, when a user enters a rating and submits**, the rating should be saved in the backend and persisted in the frontend.
+- **In the detail view, when a user enters a score and submits**, the score should be saved in the backend and persisted in the frontend.
 - **When the user clicks 'Judge Bakes'**, the winner should be revealed in the sidebar.
 
 ## API Setup
@@ -53,14 +53,14 @@ Example response:
     "name": "Rahul’s Chocolate-dipped Orange Madeleines",
     "description": "These dainty treats are filled with homemade orange curd. You’ll make more curd than you need, so keep the remainder to have on toast another time.",
     "image_url": "https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/05/Choc_Orange_Madalienes_1024x450-1024x450.png",
-    "rating": 0
+    "score": 0
   },
   {
     "id": 2,
     "name": "Alice’s Orange & Cardamom ‘Ice Cream’ Buns",
     "description": "Fragrant breads baked to resemble ice-cream tubs are topped with a delicious cream-cheese icing and sprinkles. They are great fun to serve to children.",
     "image_url": "https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/10/icecreams_forweb.jpg",
-    "rating": 2
+    "score": 2
   }
 ]
 ```
@@ -95,7 +95,7 @@ Example Response:
   "name": "Rahul’s Chocolate-dipped Orange Madeleines",
   "description": "These dainty treats are filled with homemade orange curd. You’ll make more curd than you need, so keep the remainder to have on toast another time.",
   "image_url": "https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/05/Choc_Orange_Madalienes_1024x450-1024x450.png",
-  "rating": 0
+  "score": 0
 }
 ```
 
@@ -125,15 +125,15 @@ Example Response:
   "name": "Rahul’s Chocolate-dipped Orange Madeleines",
   "description": "These dainty treats are filled with homemade orange curd. You’ll make more curd than you need, so keep the remainder to have on toast another time.",
   "image_url": "https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/05/Choc_Orange_Madalienes_1024x450-1024x450.png",
-  "rating": 0
+  "score": 0
 }
 ```
 
 ### Rate Bake (Deliverable 4)
 
-**In the detail view, when a user enters a rating and submits**, the rating should be saved in the backend and persisted in the frontend.
+**In the detail view, when a user enters a score and submits**, the score should be saved in the backend and persisted in the frontend.
 
-To get your rating to persist in the backend, you'll need to make the following request. **NOTE**: take special notice of the required headers! Only judges can submit a rating, so you'll have to submit an additional header to authorize this request.
+To get your score to persist in the backend, you'll need to make the following request. **NOTE**: take special notice of the required headers! Only judges can submit a score, so you'll have to submit an additional header to authorize this request.
 
 *Rate Bake*
 ```
@@ -154,7 +154,7 @@ Example Response:
   "name": "Rahul’s Chocolate-dipped Orange Madeleines",
   "description": "These dainty treats are filled with homemade orange curd. You’ll make more curd than you need, so keep the remainder to have on toast another time.",
   "image_url": "https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/05/Choc_Orange_Madalienes_1024x450-1024x450.png",
-  "rating": 10
+  "score": 10
 }
 ```
 
@@ -174,6 +174,6 @@ Example Response:
   "name": "Rahul’s Chocolate-dipped Orange Madeleines",
   "description": "These dainty treats are filled with homemade orange curd. You’ll make more curd than you need, so keep the remainder to have on toast another time.",
   "image_url": "https://thegreatbritishbakeoff.co.uk/wp-content/uploads/2019/05/Choc_Orange_Madalienes_1024x450-1024x450.png",
-  "rating": 0
+  "score": 0
 }
 ```
