@@ -73,15 +73,14 @@ class BakeController {
     static handleSubmit(e) {
         e.preventDefault()
         const data = {
-            id: e.target.dataset.id,
             name: e.target.name.value,
-            breed: e.target.image_url.value,
-            sex: e.target.description.value
+            image_url: e.target.image_url.value,
+            description: e.target.description.value
         }
 
         Adapter.createData(BakeController.BASE_URL, data)
             .then(Adapter.getData(BakeController.BASE_URL))
-            .then(BakeController.renderBakes)
+            .then(BakeController.render)
         e.target.reset()
         e.target.dataset.id = ''
     }

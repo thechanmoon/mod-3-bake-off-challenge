@@ -2,17 +2,18 @@ class Adapter {
     static getData(url, id = '') {
         // console.log('1 url : ' + url)
         url = id == '' ? url : `${url}/${id}`;
-        console.log('2 url : ' + url)
+        console.log('getData url : ' + url)
         return fetch(url).then(res => res.json())
     }
 
-    static editData(url, data) {
+    static editData(url, data, Authorization = '') {
         url = `${url}/${data.id}`;
         console.log('editData : ' + url)
         const options = {
             method: "PATCH",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": "Bearer 699a9ff1-88ca-4d77-a26e-e4bc31cfc261"
             },
             body: JSON.stringify(data)
         }
@@ -27,10 +28,13 @@ class Adapter {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
+                // "Authorization": "Bearer 699a9ff1-88ca-4d77-a26e-e4bc31cfc261"
+                // "Authorization": "Bearer 699a9ff1-88ca-4d77-a26e-e4bc31cfc261"
             },
             body: JSON.stringify(data)
         }
         return fetch(url, options)
             .then(res => res.json())
+            // .then(console.log)
     }
 }

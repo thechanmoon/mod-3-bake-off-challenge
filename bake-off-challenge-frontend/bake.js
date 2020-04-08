@@ -8,8 +8,10 @@ class Bake {
 
     name_element() {
         const li = document.createElement('li');
-        li.innerText = this.name
+        // li.innerText = this.name;
+        li.textContent = this.name;
         li.dataset.id = this.id;
+        li.className = "item";
         return li
     }
 
