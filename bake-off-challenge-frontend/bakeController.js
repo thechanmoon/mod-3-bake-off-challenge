@@ -6,8 +6,11 @@ class BakeController {
         newBakeForm.addEventListener("submit",BakeController.handleSubmit)
 
         Adapter.getData(BakeController.BASE_URL)
-            .then(BakeController.renderData)
-
+            //.then(BakeController.renderData)
+            .then(data => {
+                console.log(data);
+                BakeController.renderData(data);
+            })
     }
     static renderData(array) {
         array.forEach(BakeController.render);
@@ -47,7 +50,11 @@ class BakeController {
 
         const id = event.target.dataset.id
         Adapter.getData(BakeController.BASE_URL, id)
-            .then(BakeController.populateForm)
+            // .then(BakeController.populateForm)
+            .then(data => {
+                console.log(data);
+                BakeController.populateForm(data)
+            });
     }
 
     static handleMouseOut(event) {
@@ -80,7 +87,11 @@ class BakeController {
 
         Adapter.createData(BakeController.BASE_URL, data)
             .then(Adapter.getData(BakeController.BASE_URL))
-            .then(BakeController.render)
+            // .then(BakeController.render)
+            .then(data =>{
+                console.log(data);
+                BakeController.render(data);
+            });
         e.target.reset()
         e.target.dataset.id = ''
     }

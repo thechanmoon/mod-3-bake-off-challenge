@@ -4,6 +4,7 @@ class Adapter {
         url = id == '' ? url : `${url}/${id}`;
         console.log('getData url : ' + url)
         return fetch(url).then(res => res.json())
+        //return fetch(url).then(res => {console.log(res); return res.json();})
     }
 
     static editData(url, data, Authorization = '') {
