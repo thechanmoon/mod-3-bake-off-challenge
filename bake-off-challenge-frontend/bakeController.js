@@ -2,18 +2,19 @@ class BakeController {
     static BASE_URL = 'http://localhost:3000/bakes';
 
     static init() {
-        // Adapter.getData('http://localhost:3000/bakes')
+        const newBakeForm = document.querySelector("#new-bake-form")
+        newBakeForm.addEventListener("submit",BakeController.handleSubmit)
+
         Adapter.getData(BakeController.BASE_URL)
             .then(BakeController.renderData)
-            // console.log('init called')
-            // const form = document.querySelector('#bakes-container');
-            // form.addEventListener('submit', BakeController.handleSubmit);
-    }
 
+    }
     static renderData(array) {
-        // const table = document.querySelector('#table-body');
-        // table.innerHTML = ''
         array.forEach(BakeController.render);
+        if(array.length>0)
+        {
+            BakeController.populateForm(array[0]);
+        }
     }
 
     static render(element) {
@@ -23,7 +24,7 @@ class BakeController {
         // item.addEventListener("mouseenter", BakeController.handleMouseEnter, false)
         name_element.addEventListener("mouseover", BakeController.handleMouseOver, false)
         name_element.addEventListener("mouseout", BakeController.handleMouseOut, false)
-        name_element.addEventListener("click", BakeController.handleClick, false)
+        // name_element.addEventListener("click", BakeController.handleClick, false)
         container.append(name_element)
     }
 
@@ -43,20 +44,21 @@ class BakeController {
         // setTimeout(function() {
         //     event.target.style.color = "";
         // }, 500);
+
+        const id = event.target.dataset.id
+        Adapter.getData(BakeController.BASE_URL, id)
+            .then(BakeController.populateForm)
     }
 
     static handleMouseOut(event) {
         event.target.style.color = "";
     }
 
-    static handleClick(event) {
-        const id = event.target.dataset.id
-        Adapter.getData(BakeController.BASE_URL, id)
-            .then(BakeController.populateForm)
-            // let data = Adapter.getData(BakeController.BASE_URL, id);
-            // debugger
-            // BakeController.populateForm(data);
-    }
+    // static handleClick(event) {
+    //     const id = event.target.dataset.id
+    //     Adapter.getData(BakeController.BASE_URL, id)
+    //         .then(BakeController.populateForm)
+    // }
 
     static populateForm(bake) {
         const newBake = new Bake(bake)
@@ -73,10 +75,11 @@ class BakeController {
         const data = {
             id: e.target.dataset.id,
             name: e.target.name.value,
-            breed: e.target.breed.value,
-            sex: e.target.sex.value
+            breed: e.target.image_url.value,
+            sex: e.target.description.value
         }
-        Adapter.editData(BakeController.BASE_URL, data)
+
+        Adapter.createData(BakeController.BASE_URL, data)
             .then(Adapter.getData(BakeController.BASE_URL))
             .then(BakeController.renderBakes)
         e.target.reset()

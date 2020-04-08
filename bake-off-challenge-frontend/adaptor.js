@@ -20,4 +20,17 @@ class Adapter {
             .then(res => res.json())
     }
 
+    static createData(url, data) {
+        // url = `${url}/${data.id}`;
+        console.log('createData : ' + url)
+        const options = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }
+        return fetch(url, options)
+            .then(res => res.json())
+    }
 }
