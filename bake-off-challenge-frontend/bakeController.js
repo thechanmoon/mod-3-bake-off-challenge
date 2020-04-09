@@ -71,9 +71,11 @@ class BakeController {
         const newBake = new Bake(bake)
         const detail = document.querySelector('#detail')
 
-        while (detail.firstChild) {
-            detail.firstChild.remove();
-        }
+        // while (detail.firstChild) {
+        //     detail.firstChild.remove();
+        // }
+        // debugger
+        detail.innerHTML = '';
 
         const divImg = newBake.img_element();
         // const btn_submit = inputSubmit.querySelector('#rate-submit')

@@ -4,6 +4,7 @@ class Bake {
         this.description = bake.description;
         this.image_url = bake.image_url;
         this.id = bake.id;
+        this.score = bake.score;
     }
 
     name_element() {
@@ -24,15 +25,17 @@ class Bake {
         let inputNumber = document.createElement("input");
         let inputSubmit = document.createElement("input");
 
-        inputNumber.value = 10;
+        inputNumber.value = this.score;
         inputNumber.type = "number";
         inputNumber.name = "score";
+        inputNumber.id = "score";
         inputNumber.min = 0;
         inputNumber.max = 10;
         inputNumber.step = 1;
         
         inputSubmit.type = "submit";
         inputSubmit.value = "Rate";
+        inputNumber.id = "submit";
         inputSubmit.name = "submit";
         // inputSubmit.id = "rate-submit";
         // debugger
