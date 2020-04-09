@@ -8,7 +8,7 @@ class BakeController {
         Adapter.getData(BakeController.BASE_URL)
             //.then(BakeController.renderData)
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 BakeController.renderData(data);
             })
     }
@@ -52,7 +52,7 @@ class BakeController {
         Adapter.getData(BakeController.BASE_URL, id)
             // .then(BakeController.populateForm)
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 BakeController.populateForm(data)
             });
     }
@@ -74,8 +74,25 @@ class BakeController {
         while (detail.firstChild) {
             detail.firstChild.remove();
         }
-        detail.append(newBake.img_element())
+
+        const divImg = newBake.img_element();
+        // const btn_submit = inputSubmit.querySelector('#rate-submit')
+        divImg.addEventListener('submit',BakeController.handleRateSubmit);
+        detail.append(divImg)
     }
+
+    static handleRateSubmit(e)
+    {
+        const Authorization = "Bearer 699a9ff1-88ca-4d77-a26e-e4bc31cfc261"
+        const url = `${BakeController.BASE_URL}/${e.target.dataset.id}/ratings` 
+        const data = {
+            score: e.target.score.value
+        }
+        e.preventDefault()
+        Adapter.updateData(url, data, Authorization)
+            .then(console.log)
+    }
+    
 
     static handleSubmit(e) {
         e.preventDefault()
@@ -88,9 +105,9 @@ class BakeController {
         Adapter.createData(BakeController.BASE_URL, data)
             .then(Adapter.getData(BakeController.BASE_URL))
             // .then(BakeController.render)
-            .then(data =>{
-                console.log(data);
-                BakeController.render(data);
+            .then(newData =>{
+                console.log(newData);
+                BakeController.render(newData);
             });
         e.target.reset()
         e.target.dataset.id = ''
