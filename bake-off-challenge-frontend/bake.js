@@ -28,14 +28,14 @@ class Bake {
         inputNumber.value = this.score;
         inputNumber.type = "number";
         inputNumber.name = "score";
-        inputNumber.id = "score";
+        // inputNumber.id = "score";
         inputNumber.min = 0;
         inputNumber.max = 10;
         inputNumber.step = 1;
         
         inputSubmit.type = "submit";
         inputSubmit.value = "Rate";
-        inputNumber.id = "submit";
+        // inputNumber.id = "submit";
         inputSubmit.name = "submit";
         // inputSubmit.id = "rate-submit";
         // debugger

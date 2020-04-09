@@ -3,8 +3,9 @@ class BakeController {
 
     static init() {
         const newBakeForm = document.querySelector("#new-bake-form")
+        const jugdeBakeButton = document.querySelector("#judge-bake-button")
         newBakeForm.addEventListener("submit",BakeController.handleSubmit)
-
+        jugdeBakeButton.addEventListener("click",BakeController.handleJudgeBakeSubmit)
         Adapter.getData(BakeController.BASE_URL)
             //.then(BakeController.renderData)
             .then(data => {
@@ -113,5 +114,16 @@ class BakeController {
             });
         e.target.reset()
         e.target.dataset.id = ''
+    }
+
+    static handleJudgeBakeSubmit(e)
+    {
+        e.preventDefault()
+        console.log('judgeButtonClicked')
+        Adapter.getData(BakeController.BASE_URL+'/winner')
+        .then(data => {
+             console.log(data);
+            //BakeController.renderData(data);
+        })
     }
 }
