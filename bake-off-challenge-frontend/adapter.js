@@ -55,7 +55,7 @@ class Adapter {
             },
             body: JSON.stringify(data)
         }
-        // return fetch(url, options).then(res => res.json())
+        return fetch(url, options).then(res => res.json())
             // .then(console.log)
     }
 }
