@@ -26,9 +26,9 @@ class BakeController {
         const bake = new Bake(element)
         const name_element = bake.name_element();
         // item.addEventListener("mouseenter", BakeController.handleMouseEnter, false)
-        name_element.addEventListener("mouseover", BakeController.handleMouseOver, false)
-        name_element.addEventListener("mouseout", BakeController.handleMouseOut, false)
-        // name_element.addEventListener("click", BakeController.handleClick, false)
+       //name_element.addEventListener("mouseover", BakeController.handleMouseOver, false)
+        //name_element.addEventListener("mouseout", BakeController.handleMouseOut, false)
+         name_element.addEventListener("click", BakeController.handleClick, false)
         container.append(name_element)
     }
 
@@ -62,11 +62,11 @@ class BakeController {
         event.target.style.color = "";
     }
 
-    // static handleClick(event) {
-    //     const id = event.target.dataset.id
-    //     Adapter.getData(BakeController.BASE_URL, id)
-    //         .then(BakeController.populateForm)
-    // }
+    static handleClick(event) {
+        const id = event.target.dataset.id
+        Adapter.getData(BakeController.BASE_URL, id)
+            .then(BakeController.populateForm)
+    }
 
     static populateForm(bake) {
         const newBake = new Bake(bake)
@@ -124,6 +124,10 @@ class BakeController {
         .then(data => {
              console.log(data);
             //BakeController.renderData(data);
+            let bakeWinner = document.querySelector("#bakes-container").querySelector(`[data-id='${data.id}']`)
+            
+            bakeWinner.classList.add("winner")
+            debugger
         })
     }
 }
